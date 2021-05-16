@@ -17,8 +17,26 @@ const FormularioProd =() => {
     }
     const crearProd = (event) =>{
         event.preventDefault();
-        
-        console.log(datos.name+ ' ' +datos.price+ ' ' +datos.nutrient)
+        try{
+            let config ={
+                method: 'POST' ,
+                body: JSON.stringify({
+                    name: this.datos.name,
+                    price: this.datos.price,
+                    nutrient: this.datos.nutrient,
+                    image:this.datos.image
+
+                })
+
+            }
+            let resp =  fetch('https://benefits-user-dot-yuyaytest.uc.r.appspot.com/v2/post/product')
+            let datos =  resp.json()
+            console.log(datos)
+
+        }
+        catch (error){
+
+        }
     }
     
     
